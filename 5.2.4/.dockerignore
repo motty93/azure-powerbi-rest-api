@@ -1,0 +1,14 @@
+.dockerignore
+.git
+.gitignore
+docker
+docker-compose.yml
+Gemfile.lock
+init.sh
+README.md
+log
+tmp
+coverage/
+spec/tmp
+.bundle
+.rspec
