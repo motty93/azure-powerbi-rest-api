@@ -8,8 +8,9 @@ class Api::AzureActiveDirectoriesController < ApplicationController
   end
 
   def callback
-    binding.pry
     token = @client.auth_code.get_token(params[:code], redirect_uri: ENV['OAUTH_CALLBACK_URL'])
+    binding.pry
+    response = token.get("https://api.powerbi.com/v1.0/myorg/groups/#{ENV['GROUP_ID']}/reports", { token_type: token.params['token_type'], access_token: token.token }).parsed
   end
 
   private
