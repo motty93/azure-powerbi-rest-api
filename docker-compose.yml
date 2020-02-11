@@ -38,4 +38,4 @@ volumes:
   postgresql-data:
     driver: local
   bundle:
-    drive: local
+    driver: local
