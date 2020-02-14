@@ -15,6 +15,7 @@ gem 'dotenv-rails'
 gem 'enum_help'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'oauth2'
+gem 'faraday_middleware'
 
 group :development, :test do
   gem 'annotate'
