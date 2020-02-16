@@ -1,4 +1,4 @@
-module AzureActiveDirectry
+module ActiveDirectry
   class Client
     attr_accessor :client
 
