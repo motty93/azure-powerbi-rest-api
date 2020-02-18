@@ -11,9 +11,15 @@ class Api::AzureActiveDirectoriesController < ApplicationController
     session[:access_token] = auth_params[:access_token]
     session[:expires_in] = auth_params[:expires_in]
 
-    powerbi_client = Powerbi::Client.new(auth_params[:access_token])
-    powerbi_response = powerbi_client.get_report
+    client = Powerbi::Client.new(auth_params[:access_token])
+    powerbi_response = client.get_report
     @report = JSON.parse(powerbi_response.body).symbolize_keys
+  end
+
+  def generate_token
+    client = Powerbi::Client.new(session[:access_token])
+    powebi_response = client.post_generate_token
+    @json = JSON.parse(powebi_response.body).symbolize_keys
   end
 
   private
