@@ -7,6 +7,7 @@ module Powerbi
       @connection ||= Faraday.new BASE_URL do |builder|
         builder.request :url_encoded
         builder.request :oauth2, token, token_type: :bearer
+        builder.request :json # NoMethodError (undefined method `bytesize' for {"accessLevel"=>"View"}:Hash)対策
         builder.response :logger
         builder.adapter Faraday.default_adapter
       end
