@@ -16,5 +16,15 @@ module Powerbi
     def get_report(id = ENV['REPORT_ID'])
       connection.get "/v1.0/myorg/groups/#{ENV['GROUP_ID']}/reports/#{id}"
     end
+
+    def post_generate_token(id = ENV['REPORT_ID'])
+      connection.post do |req|
+        req.headers['Content-Type'] = 'application/json'
+        req.url "/v1.0/myorg/groups/#{ENV['GROUP_ID']}/reports/#{id}/GenerateToken"
+        req.body = {
+          accessLevel: 'View'
+        }
+      end
+    end
   end
 end
