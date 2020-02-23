@@ -1,7 +1,10 @@
 <h1>Congratulations!!!</h1>
 <p>
-レポートID: <%= @report[:id]%>
+  レポートID: <%= @report[:id]%>
 </p>
 <p>
-<%= @report %>
+  <%= @report %>
 </p>
+<div>
+  <%= link_to '埋め込みトークン取得', api_azure_active_directories_generate_token_path %>
+</div>
